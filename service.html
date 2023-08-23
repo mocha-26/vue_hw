@@ -298,8 +298,23 @@
                     <h2>私人教練課程</h2>
 
                     <div class="service">
-<!-- 
-                        <div class="item">
+
+                        <div class="item" v-for="item in tag">
+
+                            <h3>{{item.eH3}}</h3>
+                            <h4>{{item.eH4}}</h4>
+                            <p v-html="item.eP">
+                            </p>
+                            <span>{{item.eSpan}}</span>
+        
+                            <a :href="item.href" class="btn">{{item.btn}}</a>
+                            <div v-if="item.hot" class="tag">{{item.tag}}</div>
+                        </div>
+                    </div>
+                </div>
+                    
+        
+                <!-- <div class="item">
                             <h3>體驗課程</h3>
                             <h4>私人教練課</h4>
                             <p>一小時教練課程<br>
@@ -343,18 +358,7 @@
                 </div> -->
 
 
-                <div class="item" v-for="tag in service">
-
-                    <h3>{{tag.eH3}}</h3>
-                    <h4>{{tag.eH4}}</h4>
-                    <p v-html="item.p">
-                    </p>
-                    <span>{{tag.eSpan}}</span>
-
-                    <a :href="item.href" class="btn">{{tag.btn}}</a>
-                    <div v-if="item.hot" class="tag">{{tag}}</div>
-                </div>
-
+              
 
                 <!-- <div class="icon" v-for="page in icon">
                     <img :src="page.eSrc" :alt="page.eAlt"  width=48 height=48>
@@ -365,45 +369,15 @@
 
                     <div class="service">
 
-                        <div class="item">
-                            <h3>全方位課程</h3>
-                            <h4>營養課 + 教練課</h4>
-                            <p>8 堂教練課 + 8週飲食服務<br>
-                                額外贈送指定時間自主訓練 ( 合約期限內 )<br>
-                                可加購自主訓練課表<br>
-                                可轉讓課程 ( 合約期限內免費 )<br>
-                                可分次付款<br>
+                        <div class="item" v-for="(item,index) in serviceItems" :key="index">
+                            <h3>{{item.h3}}</h3>
+                            <h4>{{item.h4}}</h4>
+                            <p v-html="item.p">
                             </p>
-                            <span>$24000</span>
-
-                            <a href="contact.html" class="btn">立即諮詢</a>
-                        </div>
-
-
-                        <div class="item">
-                            <h3>12周營養課程</h3>
-                            <h4>營養師私人指導</h4>
-                            <p>目標設定<br>
-                                設計飲食菜單<br>
-                                追蹤監督、建議<br>
-                                飲食QA、課後規劃<br>
-                                皆由營養師一對一指導與執行 <br>
-                            </p>
-                            <span>$15000</span>
-                            <a href="contact.html" class="btn">立即諮詢</a>
-                        </div>
-
-                        <div class="item">
-                            <h3>線上增肌減脂課</h3>
-                            <h4>訓練、飲食課表</h4>
-                            <p>週期菜單<br>
-                                飲食QA、建議<br>
-                                客製化課表<br>
-                                飲食服務由營養師一對一指導<br>
-                            </p>
-                            <span>$15000</span>
-                            <a href="contact.html" class="btn">立即諮詢</a>
-                            <div class="tag">熱銷</div>
+                            <span>{{item.price}}</span>
+    
+                            <a :href="item.link" class="btn">{{item.btn_name}}</a>
+                            <div class="tag" v-if="item.hot">{{item.tag}}</div>
                         </div>
 
                     </div>
@@ -453,7 +427,8 @@
                     </div>
 
                 </div>
-            </div>
+            </div>           
+</div>
 
 </body>
 
@@ -481,10 +456,11 @@
     });
 </script>
 <script src="https://unpkg.com/vue@next"></script>
+
 <script>
     const app = Vue.createApp({
         data() {
-            return {
+            return{
                 nav: [{
                         link: "abouts.html",
                         name: '關於我們'
@@ -553,7 +529,32 @@
                         hot: true
 
                     }
-                ]
+                ],
+                serviceItems:[
+                        {h3:'全方位課程',
+                        h4:'營養課 + 教練課',
+                        p:'8 堂教練課 + 8週飲食服務<br>額外贈送指定時間自主訓練( 合約期限內 )<br>可加購自主訓練課表可轉讓課程 (合約期限內免費)<br>可分次付款<br>',
+                        price:'$24000',
+                        btn_name:'立即諮詢',
+                        link:'contact.html',
+                        hot:false},
+                        {h3:'12周營養課程',
+                        h4:'營養師私人指導',
+                        p:'目標設定<br>設計飲食菜單<br>追蹤監督、建議<br>飲食QA、課後規劃<br>皆由營養師一對一指導與執行 <br>',
+                        price:'$15000',
+                        btn_name:'立即諮詢',
+                        link:'contact.html',
+                    hot:false},
+                        {h3:'線上增肌減脂課',
+                        h4:'訓練、飲食課表',
+                        p:'週期菜單<br>飲食QA、建議<br>客製化課表<br>飲食服務由營養師一對一指導<br>',
+                        price:'$15000',
+                        tag:'熱銷',
+                        btn_name:'立即諮詢',
+                        link:'contact.html',
+                        hot:true,
+                    tag:'熱銷'},
+                    ]
             }
         }
     }).mount('#app')
