@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +26,7 @@
             width: 100%;
             /* width: 1220px; */
             margin-bottom: 50px;
-       
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -49,7 +48,7 @@
             text-align: center;
             padding: 10px;
             display: flex;
-         
+
 
         }
 
@@ -197,17 +196,16 @@
 
 
         @media screen and (max-width: 768px) {
-        
 
-            .cards
-             {
+
+            .cards {
                 /* 調整卡片寬度和外邊距 */
                 width: 100%;
-              
+
             }
 
-            .card{
-                width: calc(100% / 1 ); 
+            .card {
+                width: calc(100% / 1);
             }
 
             h2 {
@@ -227,7 +225,7 @@
             .service .item {
                 /* 調整單個服務項目的寬度 */
                 width: 40%;
-                 /* 調整每個項目的上下間距 */
+                /* 調整每個項目的上下間距 */
                 margin: 10px 0;
             }
 
@@ -235,188 +233,227 @@
                 /* 調整跑馬燈的高度和位置 */
                 height: 70vh;
                 top: 5%;
-            }         
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="wrap">
+    <div id="app">
 
-        <input type="checkbox" name="" id="menu-switch">
-        <div class="main-header">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="imgs/logo.png" width=105 height=48>
-                </a>
-            </div>
+        <div class="wrap">
 
-
-            <div class="hb">
-                <label for="menu-switch"> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                 </label>
-            </div>
-
-            <nav class="main-nav">
-                <a href="aboutus.html">關於我們</a>
-                <a href="news.html">最新消息</a>
-                <a href="team.html">專業團隊</a>
-                <a href="service.html">服務項目</a>
-                <a href="venus.html">場館介紹</a>
-                <a href="contact.html">聯絡我們</a>
-            </nav>
-            <label for="menu-switch" class="backdrop"></label>
-        </div>
-
-
-        <div class="header">
-            SERVICE
-        </div>
-
-        <section class="cards">
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    breath fitness breath fitness breath fitness breath fitness breath fitness breath fitness breath
-                    fitness
+            <input type="checkbox" name="" id="menu-switch">
+            <div class="main-header">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="imgs/logo.png" width=105 height=48>
+                    </a>
                 </div>
+
+
+                <div class="hb">
+                    <label for="menu-switch">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </div>
+
+                <nav class="main-nav">
+
+                    <!-- <a href="aboutus.html">關於我們</a>
+                    <a href="news.html">最新消息</a>
+                    <a href="team.html">專業團隊</a>
+                    <a href="service.html">服務項目</a>
+                    <a href="venus.html">場館介紹</a>
+                    <a href="contact.html">聯絡我們</a> -->
+
+
+
+                    <!-- <a :href="page.link">{{page.name}}</a> -->
+
+
+                    <a :href="page.link" v-for="page in nav">{{page.name}}</a>
+
+                </nav>
+
+                <label for="menu-switch" class="backdrop"></label>
             </div>
 
-            <div class="card">
-                <h2>私人教練課程</h2>
 
-                <div class="service">
+            <div class="header">
+                SERVICE
+            </div>
 
-                    <div class="item">
-                        <h3>體驗課程</h3>
-                        <h4>私人教練課</h4>
-                        <p>一小時教練課程<br>
-                            每人限一次<br>
-                            課程內容會依教練、學生有所不同
-                        </p>
-                        <span>$1500</span>
-
-                        <a href="contact.html" class="btn">立即諮詢</a>
-
-                    </div>
-
-                    <div class="item">
-                        <h3>8 堂課程</h3>
-                        <h4>私人教練課</h4>
-                        <p>一小時教練課程<br>
-                            額外贈送指定時間自主訓練 ( 合約期限內 )<br>
-                            可加購自主訓練課表<br>
-                            可轉讓課程 ( 合約期限內免費 )
-                        </p>
-                        <span>$14600</span>
-                        <a href="contact.html" class="btn">立即諮詢</a>
-                    </div>
-
-                    <div class="item">
-                        <h3>24 堂課程</h3>
-                        <h4>私人教練課</h4>
-                        <p>一小時教練課程<br>
-                            額外贈送指定時間自主訓練 ( 合約期限內 )<br>
-                            可加購自主訓練課表<br>
-                            可轉讓課程 ( 合約期限內免費 )<br>
-                            可分次付款 ( 4期 )<br>
-
-                        </p>
-                        <span>$41500</span>
-                        <a href="contact.html" class="btn">立即諮詢</a>
-                        <div class="tag">熱銷</div>
+            <section class="cards">
+                <div class="marquee-container">
+                    <div class="marquee-content">
+                        breath fitness breath fitness breath fitness breath fitness breath fitness breath fitness breath
+                        fitness
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h2>飲食服務、組合方案</h2>
+                <div class="card">
+                    <h2>私人教練課程</h2>
 
-                <div class="service">
+                    <div class="service">
+<!-- 
+                        <div class="item">
+                            <h3>體驗課程</h3>
+                            <h4>私人教練課</h4>
+                            <p>一小時教練課程<br>
+                                每人限一次<br>
+                                課程內容會依教練、學生有所不同
+                            </p>
+                            <span>$1500</span>
 
-                    <div class="item">
-                        <h3>全方位課程</h3>
-                        <h4>營養課 + 教練課</h4>
-                        <p>8 堂教練課 + 8週飲食服務<br>
-                            額外贈送指定時間自主訓練 ( 合約期限內 )<br>
-                            可加購自主訓練課表<br>
-                            可轉讓課程 ( 合約期限內免費 )<br>
-                            可分次付款<br>
-                        </p>
-                        <span>$24000</span>
+                            <a href="contact.html" class="btn">立即諮詢</a>
 
-                        <a href="contact.html" class="btn">立即諮詢</a>
+                        </div>
+
+                        <div class="item">
+                            <h3>8 堂課程</h3>
+                            <h4>私人教練課</h4>
+                            <p>一小時教練課程<br>
+                                額外贈送指定時間自主訓練 ( 合約期限內 )<br>
+                                可加購自主訓練課表<br>
+                                可轉讓課程 ( 合約期限內免費 )
+                            </p>
+                            <span>$14600</span>
+                            <a href="contact.html" class="btn">立即諮詢</a>
+                        </div>
+
+                        <div class="item">
+                            <h3>24 堂課程</h3>
+                            <h4>私人教練課</h4>
+                            <p>一小時教練課程<br>
+                                額外贈送指定時間自主訓練 ( 合約期限內 )<br>
+                                可加購自主訓練課表<br>
+                                可轉讓課程 ( 合約期限內免費 )<br>
+                                可分次付款 ( 4期 )<br>
+
+                            </p>
+                            <span>$41500</span>
+                            <a href="contact.html" class="btn">立即諮詢</a>
+
+                            <div class="tag">熱銷</div>
+                        </div>
                     </div>
+                </div> -->
 
 
-                    <div class="item">
-                        <h3>12周營養課程</h3>
-                        <h4>營養師私人指導</h4>
-                        <p>目標設定<br>
-                            設計飲食菜單<br>
-                            追蹤監督、建議<br>
-                            飲食QA、課後規劃<br>
-                            皆由營養師一對一指導與執行 <br>
-                        </p>
-                        <span>$15000</span>
-                        <a href="contact.html" class="btn">立即諮詢</a>
-                    </div>
+                <div class="item" v-for="tag in service">
 
-                    <div class="item">
-                        <h3>線上增肌減脂課</h3>
-                        <h4>訓練、飲食課表</h4>
-                        <p>週期菜單<br>
-                            飲食QA、建議<br>
-                            客製化課表<br>
-                            飲食服務由營養師一對一指導<br>
-                        </p>
-                        <span>$15000</span>
-                        <a href="contact.html" class="btn">立即諮詢</a>
-                        <div class="tag">熱銷</div>
-                    </div>
+                    <h3>{{tag.eH3}}</h3>
+                    <h4>{{tag.eH4}}</h4>
+                    <p v-html="item.p">
+                    </p>
+                    <span>{{tag.eSpan}}</span>
 
+                    <a :href="item.href" class="btn">{{tag.btn}}</a>
+                    <div v-if="item.hot" class="tag">{{tag}}</div>
                 </div>
-            </div>
-        </section>
 
 
-        <div class="main-footer">
-            <div class="logo">
-                <img src="imgs/logo.png" alt="logo圖" width=105 height=48>
-            </div>
-            <div class="tel">
-                <p>電話:03-4205643 <br>
-                    時間/06:00-23:00 <br>
-                    台北市信義區基隆路一段110號<br>
-                    桃園市桃園區三民路三段120號
-                </p>
-            </div>
+                <!-- <div class="icon" v-for="page in icon">
+                    <img :src="page.eSrc" :alt="page.eAlt"  width=48 height=48>
+                </div> -->
 
-            <div class="footer-icon">
-                <p>contact with us</p>
+                <div class="card">
+                    <h2>飲食服務、組合方案</h2>
 
-                <div class="icon">
+                    <div class="service">
+
+                        <div class="item">
+                            <h3>全方位課程</h3>
+                            <h4>營養課 + 教練課</h4>
+                            <p>8 堂教練課 + 8週飲食服務<br>
+                                額外贈送指定時間自主訓練 ( 合約期限內 )<br>
+                                可加購自主訓練課表<br>
+                                可轉讓課程 ( 合約期限內免費 )<br>
+                                可分次付款<br>
+                            </p>
+                            <span>$24000</span>
+
+                            <a href="contact.html" class="btn">立即諮詢</a>
+                        </div>
+
+
+                        <div class="item">
+                            <h3>12周營養課程</h3>
+                            <h4>營養師私人指導</h4>
+                            <p>目標設定<br>
+                                設計飲食菜單<br>
+                                追蹤監督、建議<br>
+                                飲食QA、課後規劃<br>
+                                皆由營養師一對一指導與執行 <br>
+                            </p>
+                            <span>$15000</span>
+                            <a href="contact.html" class="btn">立即諮詢</a>
+                        </div>
+
+                        <div class="item">
+                            <h3>線上增肌減脂課</h3>
+                            <h4>訓練、飲食課表</h4>
+                            <p>週期菜單<br>
+                                飲食QA、建議<br>
+                                客製化課表<br>
+                                飲食服務由營養師一對一指導<br>
+                            </p>
+                            <span>$15000</span>
+                            <a href="contact.html" class="btn">立即諮詢</a>
+                            <div class="tag">熱銷</div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="main-footer">
+                <div class="logo">
+                    <img src="imgs/logo.png" alt="logo圖" width=105 height=48>
+                </div>
+                <div class="tel">
+                    <p>電話:03-4205643 <br>
+                        時間/06:00-23:00 <br>
+                        台北市信義區基隆路一段110號<br>
+                        桃園市桃園區三民路三段120號
+                    </p>
+                </div>
+
+                <div class="footer-icon">
+                    <p>contact with us</p>
+
+                    <!-- <div class="icon">
                     <img src="imgs/fb2.png" alt="fb" width=48 height=48>
                 </div>
 
                 <div class="icon">
                     <img src="imgs/ig2.png" alt="ig" width=48 height=48>
                 </div>
+
                 <div class="icon">
                     <img src="imgs/line 2.png" alt="line" width=48 height=48>
-                </div>
-                <div class="main-footer-contact">
-                    <h3>立即訂閱我們</h3>
-                    <div class="subscribe-container">
-                        <input type="email" id="emailInput" placeholder="輸入你的電子郵件地址">
-                        <button onclick="subscribe()">訂閱</button>
+                </div> -->
+
+
+
+                    <div class="icon" v-for="page in icon">
+                        <img :src="page.eSrc" :alt="page.eAlt" width=48 height=48>
                     </div>
+
+                    <div class="main-footer-contact">
+                        <h3>立即訂閱我們</h3>
+                        <div class="subscribe-container">
+                            <input type="email" id="emailInput" placeholder="輸入你的電子郵件地址">
+                            <button onclick="subscribe()">訂閱</button>
+                        </div>
+                    </div>
+
                 </div>
-
             </div>
-
 
 </body>
 
@@ -443,7 +480,84 @@
         });
     });
 </script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                nav: [{
+                        link: "abouts.html",
+                        name: '關於我們'
+                    },
+                    {
+                        link: "news.html",
+                        name: '最新消息'
+                    },
+                    {
+                        link: "team.html",
+                        name: '專業團隊'
+                    },
+                    {
+                        link: "service.html",
+                        name: '服務項目'
+                    },
+                    {
+                        link: "venus.html",
+                        name: '場館介紹'
+                    },
+                    {
+                        link: "contact.html",
+                        name: '聯絡我們'
+                    }
+                ],
+                icon: [{
+                        eSrc: 'imgs/fb2.png',
+                        eAlt: 'fb'
+                    },
+                    {
+                        eSrc: 'imgs/ig2.png',
+                        eAlt: 'ig'
+                    },
+                    {
+                        eSrc: 'imgs/line 2.png',
+                        eAlt: 'line'
+                    }
+                ],
+                tag: [
+                    {
+                        eH3: '體驗課程',
+                        eH4: '私人教練課',
+                        eP: "一小時教練課程<br>每人限一次 <br>課程內容會依教練、 學生有所不同 ",
+                        eSpan: '$1500',
+                        href: "contact.html",
+                        btn: "立即諮詢",
+                        hot: false
+                    },
+                    {
+                        eH3: '8 堂課程',
+                        eH4: '私人教練課',
+                         eP: "一小時教練課程<br>額外贈送指定時間自主訓練 ( 合約期限內 )<br>可加購自主訓練課表<br可轉讓課程 ( 合約期限內免費 )",
+                        eSpan: '$14600',
+                        href: "contact.html",
+                        btn: "立即諮詢",
+                        hot: false
+                    },
+                    {
+                        eH3: '24 堂課程',
+                         eH4: '私人教練課',
+                        eP: "一小時教練課程<br>額外贈送指定時間自主訓練 ( 合約期限內 )<br>可加購自主訓練課表<br>可轉讓課程 ( 合約期限內免費 )<br> 可分次付款 ( 4期 )<br>",
+                        eSpan: '$41500',
+                        href: "contact.html",
+                        btn: "立即諮詢",
+                        tag:'熱銷',
+                        hot: true
 
+                    }
+                ]
+            }
+        }
+    }).mount('#app')
+</script>
 
 
 </html>
