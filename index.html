@@ -550,275 +550,190 @@
 </head>
 
 <body>
-    <div class="wrap">
-        <!-- <div class="main-header">
-            <div class="logo">
-                <a href="index.html"><img src="imgs/logo.png" width=105 height=48></a>
-            </div>
-            <nav>
-                <a href="aboutus.html">關於我們</a>
-                <a href="news.html">最新消息</a>
-                <a href="team.html">專業團隊</a>
-                <a href="service.html">服務項目</a>
-                <a href="venus.html">場館介紹</a>
-                <a href="contact.html">聯絡我們</a>
-            </nav>
-        </div> -->
+    <div id="app">
+        <div class="wrap">
+    
+            <input type="checkbox" name="" id="menu-switch">
+            <div class="main-header">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="imgs/logo.png" width=105 height=48>
+                    </a>
+                </div>
+    
+                <div class="hb">
+                    <label for="menu-switch">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </div>
 
-        <input type="checkbox" name="" id="menu-switch">
-        <div class="main-header">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="imgs/logo.png" width=105 height=48>
-                </a>
-            </div>
+                <nav class="main-nav">
+                        <li v-for="(item,index) in navItems" :key="index">
+                            <a :href="item.link">{{item.name}}</a>
+                        </li>
+                </nav>
 
-            <div class="hb">
-                <label for="menu-switch">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
+                <label for="menu-switch" class="backdrop"></label>
             </div>
-
-            <nav class="main-nav">
-                <a href="aboutus.html">關於我們</a>
-                <a href="news.html">最新消息</a>
-                <a href="team.html">專業團隊</a>
-                <a href="service.html">服務項目</a>
-                <a href="venus.html">場館介紹</a>
-                <a href="contact.html">聯絡我們</a>
-            </nav>
-            <label for="menu-switch" class="backdrop"></label>
-        </div>
-        <div>
-            <ul class="carousel_img img_banner">
-                <li>
-                    <div style="position: relative;">
-                        <div class="banner_block">
-                            <div class="banner_text">
-                                <div class="banner_text_title" style="color: white;">
-                                    SUCCESS STARTS<br>
-                                    WITH SELF-DISCIPLINE
+            <div>
+                <ul class="carousel_img img_banner">
+                    <li>
+                        <div style="position: relative;">
+                            <div class="banner_block">
+                                <div class="banner_text">
+                                    <div class="banner_text_title" style="color: white;">
+                                        SUCCESS STARTS<br>
+                                        WITH SELF-DISCIPLINE
+                                    </div>
                                 </div>
                             </div>
+                            <img src="imgs/banner_1.jpg" alt="">
                         </div>
-                        <img src="imgs/banner_1.jpg" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div style="position: relative;">
-                        <div class="banner_block">
-                            <div class="banner_text">
-                                <div class="banner_text_title" style="color: #ce777b;font-weight: 900;">女性安心的運動空間</div>
-                                <div>體態雕塑訓練 ● 客製化減重課程</div>
+                    </li>
+                    <li>
+                        <div style="position: relative;">
+                            <div class="banner_block">
+                                <div class="banner_text">
+                                    <div class="banner_text_title" style="color: #ce777b;font-weight: 900;">女性安心的運動空間</div>
+                                    <div>體態雕塑訓練 ● 客製化減重課程</div>
+                                </div>
                             </div>
+                            <img id="banner_img_2" src="imgs/banner_2.jpg" alt="">
                         </div>
-                        <img id="banner_img_2" src="imgs/banner_2.jpg" alt="">
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="index-aboutus">
-            <div class="pic">
-                <img src="imgs/關於我們(首頁).jpg" alt="首頁關於我們圖">
+                    </li>
+                </ul>
             </div>
-            <div class="txt ">
-                <div class="aboutus-media-bg" style="background-image: url('imgs/關於我們(首頁).jpg');"></div>
-                <div class="aboutus-text" style="position: inherit;">
-                    <h2>關於我們</h2>
-                    <p>除了提供專業的客製化一對一教學，
-                        也提供上課的學員自主練習，
-                        場館全面採用海外原裝進口的商用頂級有氧器材、重訓器材，
-                        提供優質安全的訓練環境，帶給大家最好的運動體驗。
+    
+            <div class="index-aboutus">
+                <div class="pic">
+                    <img src="imgs/關於我們(首頁).jpg" alt="首頁關於我們圖">
+                </div>
+                <div class="txt ">
+                    <div class="aboutus-media-bg" style="background-image: url('imgs/關於我們(首頁).jpg');"></div>
+                    <div class="aboutus-text" style="position: inherit;">
+                        <h2>關於我們</h2>
+                        <p>除了提供專業的客製化一對一教學，
+                            也提供上課的學員自主練習，
+                            場館全面採用海外原裝進口的商用頂級有氧器材、重訓器材，
+                            提供優質安全的訓練環境，帶給大家最好的運動體驗。
+    
+                        </p>
+                        <a href="aboutus.html" class="btn">了解更多</a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="index-course">
+                <h2>課程特色</h2>
+                <div class="course">
+                    <div class="feature" v-for="(item,index) in featureItems" :key="index">
+                        <img :src="item.imgURL" :alt="item.altname">
+                        <p>{{item.txt}}</p>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="idea">
+                <h2>學員心得分享</h2>
+                <div class="card">
+                    <div class="card_carousel_img_block">
+                        <ul class="carousel_img img_idea">
+                            <li v-for="(item,index) in shareItems" :key="index">
+                                <div class="idea_carousel_block">
+                                    <div class="left_carousel_block">
+                                        <img :src="item.imgURL" alt="">
+                                    </div>
+                                    <div class="right_carousel_block txt">
+                                        <div style="height: fit-content;">
+                                            <h3>{{item.h3}}</h3>
+                                            <p>{{item.txt}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="venus mobile-padding">
+                <h2>our store<br>
+                    - 場館資訊 -
+                </h2>
+                <div class="card">
+                    <div class="items" v-for="(item,index) in storeinfo" :key="index">
+                        <div class="card-bg-img" :style="'background-image: url(\'' + item.bgimg + '\');'"></div>
 
+                        <h3>{{item.h3}}</h3>
+                        <p v-html="item.txt"></p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="bigpic">
+                <img src="imgs/立即體驗.jpg" alt="立即體驗大圖">
+                <p>追求理想最舒適的健身房<br>
+                    可持續性的健身體驗</p>
+                <a href="contact.html" class="btn">立即體驗</a>
+            </div>
+    
+            <div class="video-bg mobile-padding">
+                <div class="video-txt">
+                    <h1>素人體態大改造</h1>
+                </div>
+                <div class="video-container">
+                    <div class="vdo-block" v-for="(item,index) in videoItems" :key="index">
+                        <video class="video-player" width="100%" autoplay muted loop controls>
+                            <source :src="item.src" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+            <div class="main-footer">
+                <div class="logo">
+                    <img src="imgs/logo.png" alt="logo圖" width=105 height=48>
+                </div>
+                <div class="tel">
+                    <p>電話/03-4205643 <br>
+                        時間/06:00-23:00 <br>
+                        台北市信義區基隆路一段110號<br>
+                        桃園市桃園區三民路三段120號
                     </p>
-                    <a href="aboutus.html" class="btn">了解更多</a>
                 </div>
-            </div>
-        </div>
-
-        <div class="index-course">
-            <h2>課程特色</h2>
-            <div class="course">
-                <div class="feature">
-                    <img src="imgs/heart-beat.png" alt="課程特色icon">
-                    <p>會用視覺、聽覺與動能三種學習方式，並輔以正面回饋，讓你在課程中維持愉快的心情，達成最佳學習效能。</p>
-                </div>
-                <div class="feature">
-                    <img src="imgs/2871284.png" alt="課程特色icon">
-                    <p>研發的課程内容，以科學基礎為主、減少運動傷害風險為輔，實際協助你在運動過程中所面臨的各種狀況，有效達成目標。</p>
-                </div>
-                <div class="feature">
-                    <img src="imgs/Frame 3.png" alt="課程特色icon">
-                    <p>強調符合生物力學、變化性高的訓練內容，屏除單調制式的重複訓練，提高你身體強韌的功能性。</p>
-                </div>
-
-            </div>
-        </div>
-        <div class="idea">
-            <h2>學員心得分享</h2>
-            <div class="card">
-                <div class="card_carousel_img_block">
-                    <ul class="carousel_img img_idea">
-                        <li>
-                            <div class="idea_carousel_block">
-                                <div class="left_carousel_block">
-                                    <img src="imgs/before.jpg" alt="">
-                                </div>
-                                <div class="right_carousel_block txt">
-                                    <div style="height: fit-content;">
-                                        <h3>不喜歡運動的我 漸漸開始運動</h3>
-                                        <p>
-                                            我本身就是四隻細細瘦瘦的身材體重 48 公斤，以體脂肪26~27，左右身材來說，覺得還蠻標準的，但肥肥鬆鬆的肚子有時後讓我很討厭，但也沒有什麼想要改變的動力，反正看起來瘦瘦的就好，突然有一天看到...
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="idea_carousel_block">
-                                <div class="left_carousel_block">
-                                    <img src="imgs/before1.jpg" alt="">
-                                </div>
-                                <div class="right_carousel_block txt">
-                                    <div style="height: fit-content;">
-                                        <h3>不喜歡運動的我 漸漸開始運動</h3>
-                                        <p>
-                                            我本身就是四隻細細瘦瘦的身材體重 48 公斤，以體脂肪26~27，左右身材來說，覺得還蠻標準的，但肥肥鬆鬆的肚子有時後讓我很討厭，但也沒有什麼想要改變的動力，反正看起來瘦瘦的就好，突然有一天看到...
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="idea_carousel_block">
-                                <div class="left_carousel_block">
-                                    <img src="imgs/before2.jpg" alt="">
-                                </div>
-                                <div class="right_carousel_block txt">
-                                    <div style="height: fit-content;">
-                                        <h3>不喜歡運動的我 漸漸開始運動</h3>
-                                        <p>
-                                            我本身就是四隻細細瘦瘦的身材體重 48 公斤，以體脂肪26~27，左右身材來說，覺得還蠻標準的，但肥肥鬆鬆的肚子有時後讓我很討厭，但也沒有什麼想要改變的動力，反正看起來瘦瘦的就好，突然有一天看到...
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
- <!--                <img src="imgs/left-arrow 4.png" alt="右箭頭" width="20px" class="left-arrow">
-                <img src="imgs/before.jpg" alt="學員before after">
-
-
-                <div class="txt">
-                    <h3>不喜歡運動的我 漸漸開始運動</h3>
-                    <p>我本身就是四隻細細瘦瘦的身材體重 48 公斤，以體脂肪 26~27
-                        左右身材來說，覺得還蠻標準的，但肥肥鬆鬆的肚子有時後讓我很討厭，但也沒有什麼想要改變的動力，反正看起來瘦瘦的就好，突然有一天看到...</p>
-                </div>
-                <img src="imgs/right-arrow.png" alt="右箭頭" width="20px" class="right-arrow"> -->
-            </div>
-
-            <!-- <img src="imgs/list.png" alt="輪播圖 3個點" width="30px"> -->
-
-        </div>
-
-        <div class="venus mobile-padding">
-            <h2>our store<br>
-                - 場館資訊 -
-            </h2>
-            <div class="card">
-                <div class="items">
-                    <div class="card-bg-img" style="background-image: url('imgs/環境1 index.jpg');"></div>
-                    <!-- <a href="#"><img src="imgs/環境1 index.jpg" alt="首頁環境圖"></a> -->
-                    <h3>台北</h3>
-                    <p>台北市信義區基隆路一段110號<br>
-                        電話 /02-22135000<br>
-                        時間 /06:00-23:00</p>
-                </div>
-
-                <div class="items">
-                    <div class="card-bg-img" style="background-image: url('imgs/環境2 index.jpg');"></div>
-                    <!-- <a href="#"><img src="imgs/環境2 index.jpg" alt="首頁環境圖"></a> -->
-                    <h3>桃園</h3>
-                    <p>桃園市桃園區三民路三段120號<br>
-                        電話 /03-4258711<br>
-                        時間 /06:00-23:00</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bigpic">
-            <img src="imgs/立即體驗.jpg" alt="立即體驗大圖">
-            <p>追求理想最舒適的健身房<br>
-                可持續性的健身體驗</p>
-            <a href="contact.html" class="btn">立即體驗</a>
-        </div>
-
-        <div class="video-bg mobile-padding">
-            <div class="video-txt">
-                <h1>素人體態大改造</h1>
-            </div>
-            <div class="video-container">
-                <div class="vdo-block">
-                    <video class="video-player" width="100%" autoplay muted loop controls>
-                        <source src="video/video 1.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="vdo-block">
-                    <video class="video-player" width="100%" autoplay muted loop controls>
-                        <source src="video/video 3.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="main-footer">
-            <div class="logo">
-                <img src="imgs/logo.png" alt="logo圖" width=105 height=48>
-            </div>
-            <div class="tel">
-                <p>電話/03-4205643 <br>
-                    時間/06:00-23:00 <br>
-                    台北市信義區基隆路一段110號<br>
-                    桃園市桃園區三民路三段120號
-                </p>
-            </div>
-
-            <div class="footer-icon">
-                <p>contact with us</p>
-
-                <div class="icon">
-                    <img src="imgs/fb2.png" alt="fb" width=48 height=48>
-                </div>
-
-                <div class="icon">
-                    <img src="imgs/ig2.png" alt="ig" width=48 height=48>
-                </div>
-                <div class="icon">
-                    <img src="imgs/line 2.png" alt="line" width=48 height=48>
-                </div>
-
-                <div class="main-footer-contact">
-                    <h3>立即訂閱我們</h3>
-                    <div class="subscribe-container">
-                        <input type="email" id="emailInput" placeholder="輸入你的電子郵件地址">
-                        <button onclick="subscribe()">訂閱</button>
+    
+                <div class="footer-icon">
+                    <p>contact with us</p>
+    
+                    <div class="icon" v-for="(item,index) in footerItems" :key="index">
+                        <img :src="item.imgURL" :alt="item.name" width=48 height=48>
                     </div>
+    
+      
+    
+                    <div class="main-footer-contact">
+                        <h3>立即訂閱我們</h3>
+                        <div class="subscribe-container">
+                            <input type="email" id="emailInput" placeholder="輸入你的電子郵件地址">
+                            <button onclick="subscribe()">訂閱</button>
+                        </div>
+                    </div>
+    
                 </div>
-
-            </div>
-
-            <div id="gotop">
-                <img src="imgs/page up.png" alt="壺鈴Top">
+    
+                <div id="gotop">
+                    <img src="imgs/page up.png" alt="壺鈴Top">
+                </div>
             </div>
         </div>
     </div>
     <script>
+      $(document).ready(function(){
         window.addEventListener('scroll', function () {
                 if (window.scrollY > 300) {
                     document.getElementById('gotop').style.display = 'block';
@@ -850,8 +765,52 @@
             autoplay: true,
             autoplaySpeed: 2000,
         });
+      });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
 
+
+    <script>
+         const app = new Vue({
+            el:'#app',
+            data(){
+                return{
+                    navItems:[
+                        {link:'aboutus.html',name:'關於我們'},
+                        {link:'news.html',name:'最新消息'},
+                        {link:'team.html',name:'專業團隊'},
+                        {link:'service.html',name:'服務項目'},
+                        {link:'venus.html',name:'場館介紹'},
+                        {link:'contact.html',name:'聯絡我們'},
+                    ],
+                    shareItems:[
+                        {imgURL:'imgs/before.jpg',h3:'不喜歡運動的我 漸漸開始運動',txt:'我本身就是四隻細細瘦瘦的身材體重 48 公斤，以體脂肪26~27，左右身材來說，覺得還蠻標準的，但肥肥鬆鬆的肚子有時後讓我很討厭，但也沒有什麼想要改變的動力，反正看起來瘦瘦的就好，突然有一天看到...'},
+                        {imgURL:'imgs/before1.jpg',h3:'不喜歡運動的我 漸漸開始運動',txt:'我本身就是四隻細細瘦瘦的身材體重 48 公斤，以體脂肪26~27，左右身材來說，覺得還蠻標準的，但肥肥鬆鬆的肚子有時後讓我很討厭，但也沒有什麼想要改變的動力，反正看起來瘦瘦的就好，突然有一天看到...'},
+                        {imgURL:'imgs/before2.jpg',h3:'不喜歡運動的我 漸漸開始運動',txt:'我本身就是四隻細細瘦瘦的身材體重 48 公斤，以體脂肪26~27，左右身材來說，覺得還蠻標準的，但肥肥鬆鬆的肚子有時後讓我很討厭，但也沒有什麼想要改變的動力，反正看起來瘦瘦的就好，突然有一天看到...'},
+                    ],
+                    featureItems:[
+                        {imgURL:'imgs/heart-beat.png',altname:'課程特色icon',txt:'會用視覺、聽覺與動能三種學習方式，並輔以正面回饋，讓你在課程中維持愉快的心情，達成最佳學習效能。'},
+                        {imgURL:'imgs/2871284.png',altname:'課程特色icon',txt:'研發的課程内容，以科學基礎為主、減少運動傷害風險為輔，實際協助你在運動過程中所面臨的各種狀況，有效達成目標。'},
+                        {imgURL:'imgs/Frame 3.png',altname:'課程特色icon',txt:'強調符合生物力學、變化性高的訓練內容，屏除單調制式的重複訓練，提高你身體強韌的功能性。'}
+                    ],
+                    storeinfo:[
+                        {bgimg:'imgs/環境1 index.jpg',h3:'台北',txt:'台北市信義區基隆路一段110號<br> 電話 /02-22135000<br>時間 /06:00-23:00'},
+                        {bgimg:'imgs/環境2 index.jpg',h3:'桃園',txt:'桃園市桃園區三民路三段120號<br>電話 /03-4258711<br>時間 /06:00-23:00'}
+                    ],
+                    videoItems:[
+                        {src:'video/video 1.mp4'},
+                        {src:'video/video 3.mp4'}
+                    ],
+                    footerItems:[
+                        {imgURL:'imgs/fb2.png',name:'fb'},
+                        {imgURL:'imgs/ig2.png',name:'ig'},
+                        {imgURL:'imgs/line 2.png',name:'line'}
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
 </body>
 
 </html>
+
