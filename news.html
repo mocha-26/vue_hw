@@ -91,24 +91,8 @@
 
 <body>
     <div class="wrap">
-
-        <!-- <div class="main-header">
-            <div class="logo">
-                <a href="index.html"><img src="imgs/logo.png" width=105 height=48></a>
-            </div>
-            <nav>
-                <a href="aboutus.html">關於我們</a>
-                <a href="news.html">最新消息</a>
-                <a href="team.html">專業團隊</a>
-                <a href="service.html">服務項目</a>
-                <a href="venus.html">場館介紹</a>
-                <a href="contact.html">聯絡我們</a>
-            </nav>
-        </div> -->
-
-
         <input type="checkbox" name="" id="menu-switch">
-        <div class="main-header">
+        <div class="main-header" id="app">
             <div class="logo">
                 <a href="index.html">
                     <img :src="imgURL" :alt="name" width=105 height=48>
@@ -124,42 +108,36 @@
                 </label>
             </div>
 
-            <!-- <nav class="main-nav">
-                <a href="aboutus.html">關於我們</a>
-                <a href="news.html">最新消息</a>
-                <a href="team.html">專業團隊</a>
-                <a href="service.html">服務項目</a>
-                <a href="venus.html">場館介紹</a>
-                <a href="contact.html">聯絡我們</a>
-            </nav> -->
-            <ul class="main-nav">
-                <li v-for="page in menu">
-                    <a :href="page.link"> {{page.name}}</a>
-                </li>
-            </ul>
-            <label for="menu-switch" class="backdrop"></label>
-        </div>
-        <script src="https://unpkg.com/vue@next"></script>
-            <script>
-                Vue.createApp({
-                    data(){
-                        return {
-                            imgURL: 'imgs/logo.png',
-
-                            menu: [
-                                { link:'aboutus.html', name:'關於我們',},
-                                { link:'news.html', name:'最新消息',},
-                                { link:'team.html', name:'專業團隊',},
-                                { link:'service.html', name:'服務項目',},
-                                { link:'venus.html', name:'場館介紹',},
-                                { link:'contact.html', name:'聯絡我們',},
-
-                            ]
-                        }
-                    }
-                }).mount(".main-header")
+            <nav class="main-nav">
+                <a 
+                v-for="menu in menuArray" 
+                :key="menu.link" 
+                :href="menu.link"
+                >
+                {{ menu.name }}
+                </a>
+              </nav>
+            
+          <script src="https://unpkg.com/vue@next"></script>
+          <script>
+             const app = Vue.createApp({
+              data(){
+              return {
+                  imgURL: 'imgs/logo.png',
+                  menuArray: [
+                  {link: 'aboutus.html',name: '關於我們'},
+                  {link: 'news.html',name: '最新消息'},
+                  {link: 'team.html',name: '專業團隊'},
+                  {link: 'service.html',name: '服務項目'},
+                  {link: 'venus.html',name: '場館介紹'},
+                  {link: 'contact.html',name: '聯絡我們'},
+                ],
+              }
+          }
+      }).mount('#app') 
             </script>
-
+            <label for="menu-switch" class="backdrop"></label>
+    </div>
 
         <div class="header">
             <h3>{{title}}</h3>
@@ -175,100 +153,22 @@
        </script>
 
         
-<!-- <div class="block">
 
-    <div class="item">
-        <div class="date">
-            <p> 19<br>
-                Jul 2023</p>
-        </div>
-
-        <div class="news">
-
-            <div class="card">
-
-                <div class="pic">
-                    <img src="imgs/最新消息6.jpg" alt="最新消息6">
-                </div>
-
-                <div class="txt">
-                    <h3>Inbody會員免費一個月測一次！</h3>
-                    <p>我們提供會員每個月都能夠免費測量Inbody一次！非訂閱制的則須購買「單次入場＋inbody」的方案唷</p>
-                </div>
-
-                <a href="news-1.html"><img src="imgs/news btn.png" alt="最新消息換頁鈕"></a>
-
-                
-
-            </div>
-
-        </div>
-        <hr>
-    </div>
-
-
-    <div class="item">
-        <div class="date">
-            <p> 23<br>
-                Jun 2023</p>
-        </div>
-
-        <div class="news">
-
-            <div class="card">
-                <div class="pic">
-                    <img src="imgs/最新消息3.webp" alt="最新消息3">
-                </div>
-                <div class="txt">
-                    <h3>歡慶週年 天降紅包</h3>
-                    <p>
-                        二週年了,週年慶活動開跑,歡迎舊雨新知一起來搶好康,限量20組,欲購從速！</p>
-                </div>
-                <a href="news-1.html"><img src="imgs/news btn.png" alt="最新消息換頁鈕"></a>
-            </div>
-        </div>
-        <hr>
-    </div>
-
-
-    <div class="item">
-        <div class="date">
-            <p> o1<br>
-                Jun 2023</p>
-        </div>
-
-        <div class="news">
-
-            <div class="card">
-                <div class="pic">
-                    <img src="imgs/最新消息7.jpg" alt="最新消息7">
-                </div>
-                <div class="txt">
-                    <h3>全台血庫告急 號召挽袖送熱血</h3>
-                    <p>
-                        因應農曆春節假期，必須提早調節血液庫存量，儲備足夠血液，讓年假期間需要用血病患皆能安心接受治療，我們與捐血中心合作，19日消防節當天，同步舉辦捐血活動。當天一共收集2784袋血，為國內血庫注入暖流。
-                    </p>
-                </div>
-                <a href="news-1.html"><img src="imgs/news btn.png" alt="最新消息換頁鈕"></a>
-            </div>
-        </div>
-        <hr>
-    </div>
-
-</div> -->
 <div class="block">
-    <div class="item" v-for="item in newslist">
+    <div class="item" v-for="item in newList">
         <div class="date">
             <p> {{item.num}}<br>
-               {{item.date}}</p>
+                {{item.date}}</p>
         </div>
+
         <div class="news">
             <div class="card">
                 <div class="pic">
                     <img :src="item.src" alt="">
                 </div>
+
                 <div class="txt">
-                    <h3>{{item.title}}</h3>
+                    <h3>{{item.h3}}</h3>
                     <p>{{item.p}}</p>
                 </div>
                 <a :href="item.a"><img :src="item.src2" alt=""></a>
@@ -277,42 +177,45 @@
         <hr>
     </div>
 </div>
-        <script>
-            Vue.createApp({
-               data(){
-                   return {
-                       newslist:[
-                        {num:`19`,
-                         date: `JUL 2023`,
-                         src: `imgs/最新消息6.jpg`,
-                         title: `Inbody會員免費一個月測一次！`,
-                         p:`我們提供會員每個月都能夠免費測量Inbody一次！非訂閱制的則須購買「單次入場＋inbody」的方案唷`,
-                         a: `news-1.html`,
-                         src2:`imgs/news btn.png`,
-                        },
-                        {num:`23`,
-                         date: `Jun 2023`,
-                         src: `imgs/最新消息3.webp`,
-                         title: `歡慶週年 天降紅包`,
-                         p:`二週年了,週年慶活動開跑,歡迎舊雨新知一起來搶好康,限量20組,欲購從速！`,
-                         a: `news-1.html`,
-                         src2:`imgs/news btn.png`,
-                        },
-                        {num:`01`,
-                         date: `Jun 2023`,
-                         src: `imgs/最新消息7.jpg`,
-                         title: `全台血庫告急 號召挽袖送熱血`,
-                         p:`因應農曆春節假期，必須提早調節血液庫存量，儲備足夠血液，讓年假期間需要用血病患皆能安心接受治療，我們與捐血中心合作，19日消防節當天，同步舉辦捐血活動。當天一共收集2784袋血，為國內血庫注入暖流。`,
-                         a: `news-1.html`,
-                         src2:`imgs/news btn.png`,
-                        },
-                       ]
-                       
-                       
 
-                   }
-               }
-           }).mount(".block")
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                newList: [
+                    {
+                        num: '19',
+                        date: 'JUL 2023',
+                        src: 'imgs/最新消息6.jpg',
+                        h3: 'Inbody會員免費一個月測一次！',
+                        p: '我們提供會員每個月都能夠免費測量Inbody一次！非訂閱制的則須購買「單次入場＋inbody」的方案唷',
+                        a: 'news-1.html',
+                        src2: 'imgs/news btn.png',
+                    },
+                    {
+                        num: '23',
+                        date: 'JUN 2023',
+                        src: 'imgs/最新消息3.webp',
+                        h3: '歡慶週年 天降紅包',
+                        p: '二週年了,週年慶活動開跑,歡迎舊雨新知一起來搶好康,限量20組,欲購從速！',
+                        a: 'news-1.html',
+                        src2: 'imgs/news btn.png',
+                    },
+                    {
+                        num: '01',
+                        date: 'JUN 2023',
+                        src: 'imgs/最新消息7.jpg',
+                        h3: '全台血庫告急 號召挽袖送熱血',
+                        p: '因應農曆春節假期，必須提早調節血液庫存量，儲備足夠血液，讓年假期間需要用血病患皆能安心接受治療，我們與捐血中心合作，19日消防節當天，同步舉辦捐血活動。當天一共收集2784袋血，為國內血庫注入暖流。',
+                        a: 'news-1.html',
+                        src2: 'imgs/news btn.png',
+                    },
+
+                ],
+            }
+        }
+    }).mount('.block')
           </script>
 
         <div class="main-footer">
